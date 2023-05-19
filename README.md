@@ -1,13 +1,3 @@
-# export
+# Module build
 
-The export tool allows to export the Maestro kernel into a shared library.
-
-Exporting the kernel as a shared library allows to compile kernel modules without including the kernel's symbols.
-
-
-
-# Why is this required?
-
-The kernel cannot be exported directly with cargo because the Rust compiler uses metadata to identify each crate, and those metadata are different for executables and shared library.
-
-This produces different symbol names for the two versions, which prevents correct loading of kernel modules at runtime.
+This library is the implementation of the build script for the compilation of Maestro kernel modules.

@@ -1,22 +1,9 @@
 //! This library is used by build scripts of kernel modules to build them.
-//!
-//! TODO describe the reason why a temporary crate is required
 
 use std::env;
 use std::path::Path;
 use std::path::PathBuf;
 use std::process::exit;
-
-/// Recompiles the kernel as a shared library.
-///
-/// Arguments:
-/// - `kern_src` is the path to the kernel's sources.
-/// - `out_dir` is the output directory.
-fn compile_kernel_shared(kern_src: &Path, out_dir: &Path) {
-	let compile_path = out_dir.join("export");
-
-	// TODO if it doesn't exist, create a temporary crate in the target directory of the kernel, which uses the kernel itself as a dependency to recompile the rlib as a dylib, exactly like it is done as a library
-}
 
 /// Prepares the environment for building a kernel module.
 pub fn build() {
