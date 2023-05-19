@@ -1,7 +1,6 @@
 //! This library is used by build scripts of kernel modules to build them.
 
 use std::env;
-use std::path::Path;
 use std::path::PathBuf;
 use std::process::exit;
 
@@ -21,8 +20,6 @@ pub fn build() {
     let profile = env::var("PROFILE").unwrap();
 
 	let out_dir = kern_src.join(PathBuf::from(format!("target/{arch}/{profile}")));
-
-	compile_kernel_shared(&out_dir);
 
     // Host libraries (`macros` for example)
     println!("cargo:rustc-link-search={}/target/{profile}/deps", kern_src.display());
